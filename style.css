@@ -32,14 +32,35 @@ h2 {
   margin-bottom: 10px;
 }
 
-button {
+/* Contact Buttons */
+.email-button,
+.whatsapp-button,
+.telegram-button,
+.tiktok-button,
+.x-button {
+  display: inline-block;
   padding: 10px 15px;
-  background: #28a745;
   color: white;
-  border: none;
+  text-decoration: none;
   border-radius: 8px;
-  margin-top: 10px;
-  cursor: pointer;
+  margin: 10px 10px 0 0;
+  font-size: 16px;
+  transition: transform 0.2s ease, box-shadow 0.2s ease;
+}
+
+.email-button { background: #28a745; }
+.whatsapp-button { background: #25D366; }
+.telegram-button { background: #0088cc; }
+.tiktok-button { background: #000; }
+.x-button { background: #1DA1F2; }
+
+.email-button:hover,
+.whatsapp-button:hover,
+.telegram-button:hover,
+.tiktok-button:hover,
+.x-button:hover {
+  transform: scale(1.05);
+  box-shadow: 0 4px 12px rgba(0,0,0,0.2);
 }
 
 footer {
@@ -48,32 +69,104 @@ footer {
   color: #666;
 }
 
-.email-button {
-  display: inline-block;
-  padding: 10px 15px;
-  background: #28a745;
-  color: white;
+/* Social Bar */
+.social-bar {
+  margin-top: 30px;
+  text-align: center;
+}
+
+.social-bar a {
+  margin: 0 10px;
+  font-size: 24px;
+  color: #333;
   text-decoration: none;
-  border-radius: 8px;
-  margin-top: 10px;
-  font-size: 16px;
 }
 
-.whatsapp-button,
-.telegram-button {
-  display: inline-block;
-  padding: 10px 15px;
-  margin-top: 10px;
+#darkToggle {
+  position: fixed;
+  top: 10px;
+  right: 10px;
+  padding: 10px;
+  background: #333;
+  color: #fff;
+  border: none;
   border-radius: 8px;
+  cursor: pointer;
+  z-index: 999;
+}
+
+body.dark-mode {
+  background-color: #121212;
+  color: #f1f1f1;
+}
+
+body.dark-mode section {
+  background: #1e1e1e;
+}
+
+body.dark-mode header {
+  background: #222;
+}
+
+body.dark-mode .email-button,
+body.dark-mode .whatsapp-button,
+body.dark-mode .telegram-button,
+body.dark-mode .tiktok-button,
+body.dark-mode .x-button {
+  filter: brightness(1.1);
+}
+
+body.dark-mode .social-bar a {
+  color: #f1f1f1;
+}
+
+/* Floating Buttons */
+.floating-buttons {
+  position: fixed;
+  bottom: 20px;
+  right: 20px;
+  display: flex;
+  flex-direction: column;
+  gap: 15px;
+  z-index: 999;
+}
+
+.float-btn {
+  width: 50px;
+  height: 50px;
+  font-size: 22px;
   color: white;
+  border-radius: 50%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
   text-decoration: none;
-  font-size: 16px;
+  box-shadow: 0 4px 10px rgba(0,0,0,0.3);
+  transition: transform 0.3s ease;
 }
 
-.whatsapp-button {
-  background-color: #25D366;
+.float-btn:hover {
+  transform: scale(1.15);
 }
 
-.telegram-button {
-  background-color: #0088cc;
+.float-btn.whatsapp { background: #25D366; }
+.float-btn.telegram { background: #0088cc; }
+.float-btn.tiktok { background: #000; }
+.float-btn.x { background: #1DA1F2; }
+
+/* TikTok Preview */
+.tiktok-preview {
+  position: fixed;
+  bottom: 90px;
+  right: 80px;
+  width: 200px;
+  display: none;
+  z-index: 1000;
+  border-radius: 12px;
+  overflow: hidden;
+  box-shadow: 0 4px 12px rgba(0,0,0,0.5);
+}
+
+.float-btn.tiktok:hover + .tiktok-preview {
+  display: block;
 }
